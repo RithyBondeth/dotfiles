@@ -1,0 +1,62 @@
+format = """
+$custom\
+$directory\
+$git_branch\
+$git_status\
+$dart\
+$memory_usage\
+$time\
+$battery\
+$cmd_duration\
+$line_break\
+$character"""
+
+[custom.user]
+command = "echo 'Bondeth'"
+when = "true"
+format = "[  $output ](fg:#282C34 bg:#E06C75 bold)"
+
+[directory]
+format = "[  $path ](fg:#282C34 bg:#E5C07B bold)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+format = "[ $symbol$branch ](fg:#282C34 bg:#61AFEF bold)"
+
+[git_status]
+format = "[$all_status$ahead_behind ](fg:#282C34 bg:#61AFEF bold)"
+
+[dart]
+symbol = " "
+format = "[ $symbol($version )](fg:#282C34 bg:#01B5F8 bold)"
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = ""
+format = "[ $symbol $ram ](fg:#282C34 bg:#E06C75 bold)"
+
+[time]
+disabled = false
+time_format = "%l:%M %p"
+format = "[  $time ](fg:#282C34 bg:#C678DD bold)"
+
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+format = "[ $symbol$percentage ](fg:#282C34 bg:#98C379 bold)"
+
+[[battery.display]]
+threshold = 100
+style = "bold"
+
+[cmd_duration]
+min_time = 2000
+format = "[  $duration ](fg:#282C34 bg:#D19A66 bold)"
+
+[character]
+success_symbol = "[❯ ](bold cyan)"
+error_symbol = "[✖ ](bold red)"
